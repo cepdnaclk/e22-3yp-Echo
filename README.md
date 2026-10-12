@@ -5,8 +5,8 @@ An assistive smart-glove system that bridges communication barriers by translati
 ---
 
 ## 👥 Team
-- **E/22/074** - Yasas Dewshan ([e22074@eng.pdn.ac.lk](mailto:e22074@eng.pdn.ac.lk))
 - **E/22/061** - Sayuru Dassanayake ([e22061@eng.pdn.ac.lk](mailto:e22061@eng.pdn.ac.lk))
+- **E/22/074** - Yasas Dewshan ([e22074@eng.pdn.ac.lk](mailto:e22074@eng.pdn.ac.lk))
 - **E/22/233** - Teshini Matharaarachchi ([e22233@eng.pdn.ac.lk](mailto:e22233@eng.pdn.ac.lk))
 - **E/22/253** - Tharusha Nethmina ([e22253@eng.pdn.ac.lk](mailto:e22253@eng.pdn.ac.lk))
 
