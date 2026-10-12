@@ -1,57 +1,33 @@
-___
-# DELETE THIS INSTRUCTIONS AND ADD AN INTRODUCTION ABOUT YOUR PROJECT
-___
+# Echo 🤟 — Every Gesture Has a Voice
 
-# eYY-3yp-project-template
+An assistive smart-glove system that bridges communication barriers by translating Sign Language gestures into speech using flex sensors, an ESP32, and machine learning. Built to make communication more accessible, with motion-based recognition and neural networks planned for future development.
 
-This is a sample repository you can use for your Embedded Systems project. Once you followed these instructions, remove the text and add a brief introduction to here.
+---
 
-### Enable GitHub Pages
+## 👥 Team
+- **E/22/074** - Yasas Dewshan ([e22074@eng.pdn.ac.lk](mailto:e22074@eng.pdn.ac.lk))
+- **E/22/061** - Sayuru Dassanayake ([e22061@eng.pdn.ac.lk](mailto:e22061@eng.pdn.ac.lk))
+- **E/22/233** - Teshini Matharaarachchi ([e22233@eng.pdn.ac.lk](mailto:e22233@eng.pdn.ac.lk))
+- **E/22/253** - Tharusha Nethmina ([e22253@eng.pdn.ac.lk](mailto:e22253@eng.pdn.ac.lk))
 
-You can put the things to be shown in GitHub pages into the _docs/_ folder. Both html and md file formats are supported. You need to go to settings and enable GitHub pages and select _main_ branch and _docs_ folder from the dropdowns, as shown in the below image.
+## 🎓 Supervisors
+- **Ms. Yasodha Vimukthi** ([yasodhav@eng.pdn.ac.lk](mailto:yasodhav@eng.pdn.ac.lk))
 
-![image](https://user-images.githubusercontent.com/11540782/98789936-028d3600-2429-11eb-84be-aaba665fdc75.png)
+---
 
-### Special Configurations
+## 📌 Project Overview
+Echo is a wearable assistive technology project developed as part of the 3rd Year Project (3YP) in the Department of Computer Engineering, University of Peradeniya. 
 
-These projects will be automatically added into [https://projects.ce.pdn.ac.lk](). If you like to show more details about your project on this site, you can fill the parameters in the file, _/docs/index.json_
+The system leverages:
+- **Wearable Hardware:** Flex sensors embedded in a glove to capture finger movements.
+- **Embedded Processing:** ESP32 microcontroller for real-time sensor reading and wireless communication.
+- **Machine Learning:** Gesture classification translating sign language into readable text and synthesized speech.
+- **Cross-Platform Access:** Complementary web and mobile applications for live speech output and interactive display.
 
-```
-{
-  "title": "This is the title of the project",
-  "team": [
-    {
-      "name": "Team Member Name 1",
-      "email": "email@eng.pdn.ac.lk",
-      "eNumber": "E/yy/xxx"
-    },
-    {
-      "name": "Team Member Name 2",
-      "email": "email@eng.pdn.ac.lk",
-      "eNumber": "E/yy/xxx"
-    },
-    {
-      "name": "Team Member Name 3",
-      "email": "email@eng.pdn.ac.lk",
-      "eNumber": "E/yy/xxx"
-    }
-  ],
-  "supervisors": [
-    {
-      "name": "Dr. Supervisor 1",
-      "email": "email@eng.pdn.ac.lk"
-    },
-    {
-      "name": "Supervisor 2",
-      "email": "email@eng.pdn.ac.lk"
-    }
-  ],
-  "tags": ["Web", "Embedded Systems"]
-}
-```
+---
 
-Once you filled this _index.json_ file, please verify the syntax is correct. (You can use [this](https://jsonlint.com/) tool).
-
-### Page Theme
-
-A custom theme integrated with this GitHub Page, which is based on [github.com/cepdnaclk/eYY-project-theme](https://github.com/cepdnaclk/eYY-project-theme). If you like to remove this default theme, you can remove the file, _docs/\_config.yml_ and use HTML based website.
+## 🔗 Links
+- [Project Page](https://cepdnaclk.github.io/e22-3yp-Echo/)
+- [Project Repository](https://github.com/cepdnaclk/e22-3yp-Echo)
+- [Department of Computer Engineering](http://www.ce.pdn.ac.lk/)
+- [Faculty of Engineering, University of Peradeniya](https://eng.pdn.ac.lk/)
