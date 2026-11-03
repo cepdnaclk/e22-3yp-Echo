@@ -1,80 +1,41 @@
+
 #include <Wire.h>
-#include <Adafruit_ADS1X15.h>
 
-#define I2C_SDA_PIN 21
-#define I2C_SCL_PIN 22
-#define ADS1_I2C_ADDR 0x48  // ADDR -> GND
-#define ADS2_I2C_ADDR 0x49  // ADDR -> 3V3
-
-// 1 = thumb only, 4 = four fingers on ADS #1, 5 = all fingers (needs ADS #2)
-#define ACTIVE_FINGERS 1
-
-const int NUM_SAMPLES = 2;
-
-Adafruit_ADS1115 ads1;
-Adafruit_ADS1115 ads2;
-
-int16_t readings[5];
-
-void scanI2C() {
-  Serial.print("I2C devices:");
-  for (uint8_t addr = 1; addr < 127; addr++) {
-    Wire.beginTransmission(addr);
-    if (Wire.endTransmission() == 0) {
-      Serial.printf(" 0x%02X", addr);
-    }
-  }
-  Serial.println();
-}
+#define SDA_PIN 21
+#define SCL_PIN 22
 
 void setup() {
   Serial.begin(115200);
+
+  Wire.begin(SDA_PIN, SCL_PIN);
+  Wire.setClock(100000);
+
   delay(500);
-  Serial.println("\n--- SignSpeak Echo Glove: flex sensor reader ---");
 
-  Wire.begin(I2C_SDA_PIN, I2C_SCL_PIN);
-  Wire.setClock(400000);
-  scanI2C();
+  Serial.println("\n--- ADS1115 Diagnostic ---");
 
-  // The library waits forever for a conversion if the chip is missing, so stop here instead
-  if (!ads1.begin(ADS1_I2C_ADDR, &Wire)) {
-    while (true) {
-      Serial.println("ADS1115 #1 not found at 0x48 - check wiring and ADDR pin");
-      delay(1000);
-    }
-  }
-  ads1.setGain(GAIN_ONE);
-  ads1.setDataRate(RATE_ADS1115_860SPS);
+  Serial.print("SDA state: ");
+  Serial.println(digitalRead(SDA_PIN));
 
-#if ACTIVE_FINGERS > 4
-  if (!ads2.begin(ADS2_I2C_ADDR, &Wire)) {
-    while (true) {
-      Serial.println("ADS1115 #2 not found at 0x49 - check wiring and ADDR pin");
-      delay(1000);
-    }
-  }
-  ads2.setGain(GAIN_ONE);
-  ads2.setDataRate(RATE_ADS1115_860SPS);
-#endif
-}
+  Serial.print("SCL state: ");
+  Serial.println(digitalRead(SCL_PIN));
 
-void readSensors() {
-  long sum[5] = {0, 0, 0, 0, 0};
-  for (int s = 0; s < NUM_SAMPLES; s++) {
-    for (int f = 0; f < ACTIVE_FINGERS; f++) {
-      sum[f] += (f < 4) ? ads1.readADC_SingleEnded(f) : ads2.readADC_SingleEnded(0);
-    }
-  }
-  for (int f = 0; f < ACTIVE_FINGERS; f++) {
-    readings[f] = sum[f] / NUM_SAMPLES;
+  Serial.println("\nScanning address 0x48...");
+
+  Wire.beginTransmission(0x48);
+  byte error = Wire.endTransmission();
+
+  Serial.print("I2C result: ");
+  Serial.println(error);
+
+  if (error == 0) {
+    Serial.println("SUCCESS: Device detected at 0x48!");
+  } else if (error == 2) {
+    Serial.println("ERROR: Address not acknowledged.");
+  } else {
+    Serial.println("Other I2C error.");
   }
 }
 
 void loop() {
-  readSensors();
-  for (int f = 0; f < ACTIVE_FINGERS; f++) {
-    Serial.print(readings[f]);
-    Serial.print(f < ACTIVE_FINGERS - 1 ? ',' : '\n');
-  }
-  delay(20);
 }
